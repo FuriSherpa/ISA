@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header{
+    background-color: gray;
+    height: 100px;
+    border: 1px solid;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    margin: 12px 0;
+    border-radius: 50%;
+    border: solid;
+}
+
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav ul li a:hover{
+    color: rgb(219, 44, 44);
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
+    margin-left: 50px;
+}
+
+.col-1{
+    flex-basis: 40%;
+    position: relative;
+    margin-left: 90px;
+}
+
+.col-1 h2{
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.col-1 h3{
+    font-size: 30px;
+    color: brown;
+    font-weight: 100;
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+.col-1 p{
+    font-size: 25px;
+    color: rgb(2, 250, 167);
+    font-weight: 100;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.col-1 h4{
+    margin: 30px 0;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+button{
+    width: 140px;
+    border: 0;
+    padding: 12px 10px;
+    outline: none;
+    color: white;
+    background-color: red;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: width 0.5s;
+}
+
+button a{
+    color: white;
+    text-decoration: none;
+}
+
+button:hover{
+    width: 145px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col-1::after{
+    content: '';
+    width: 10px;
+    height: 57%;
+    background-color: rgb(211, 71, 71);
+    position: absolute;
+    left: -40px;
+    top: 8px;
+}
+
+.col-2{
+    position: relative;
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.col-2 .Hangout{
+    width: 80%;
+    height: 500px;
+    border-radius: 25px;
+    margin-left: 60px;
+}
+
+#Menu{
+    font-size: 60px;
+    text-align: center;
+}
+
+section{
+    display: flex;   
+}
+
+article{
+    flex:1;
+    text-align: center;
+    font-weight: 100;
+}
+
+article img{
+    height: 250px;
+    width: 250px;
+    border-radius: 25px;
+}
+
+#hello{
+    margin-left: 86%;
+    font-weight: bold;
+}
+
+#About{
+    font-size: 60px;
+    text-align: center;
+    padding: 100px 0 0 0;
+}
+
+.about{
+    width: 100%;
+    padding: 50px 0 80px 0;
+}
+ 
+.about img{
+    height: 450px;
+    width: 500px;
+    border-radius: 25px;
+}
+
+.text{
+    width: 50%;
+}
+
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.text p{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+  
+#Contact{
+    text-align: center;
+    font-size: 60px;
+    padding-top: 50px;
+    background-color: #f7f7f7;
+}
+  
+#contact {
+    background-color: #f7f7f7;
+    padding: 50px 0 50px 400px;
+  }
+  
+form label {
+    margin-bottom: 10px;
+}
+  
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+form textarea {
+    height: 150px;
+}
+  
+form button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+  
+
+.social-links img{
+    height: 40px;
+    margin: 40px;
+    cursor: pointer;
+}
+
+.social-links{
+    text-align: center;
+}
+
+footer {
+    background-color: gray;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid;
+}
