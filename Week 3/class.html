@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>The getElementByClassName() Method</h1>
+
+        <P>Change the text color of only the elements with the class name "color"</P>
+
+        <div class="example">
+            <p>Hi!</p>
+        </div>
+        <div class="color">
+            <h2>Welcome to GetBasicIdea</h2>
+        </div>
+
+        <script>
+            const changeColor = document.getElementsByClassName("color");
+            changeColor[0].style.color = "red";
+        </script>
+    </body>
+</html>
