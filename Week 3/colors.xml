@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+  <tr>
+    <td>Red</td>
+    <td>#FF0000</td>
+  </tr>
+  <tr>
+    <td>Green</td>
+    <td>#00FF00</td>
+  </tr>
+  <tr>
+    <td>Blue</td>
+    <td>#0000FF</td>
+  </tr>
+  <tr>
+    <td>Yellow</td>
+    <td>#FFFF00</td>
+  </tr>
+  <tr>
+    <td>Cyan</td>
+    <td>#00FFFF</td>
+  </tr>
+  <tr>
+    <td>Magenta</td>
+    <td>#FF00FF</td>
+  </tr>
+</table>
