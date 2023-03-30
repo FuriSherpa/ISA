@@ -5,7 +5,7 @@ const display = document.getElementById("display");
 let firstOperand = null;
 let operator = null;
 let secondOperand = null;
-let previousEqualsClicked = false; // added variable
+let lastResult = null;
 
 // Function to clear the calculator state
 function clear() {
@@ -13,13 +13,13 @@ function clear() {
   operator = null;
   secondOperand = null;
   display.value = "";
-  previousEqualsClicked = false; // reset variable
 }
 
 // Function to handle number button clicks
 function handleNumberClick(number) {
-  if (previousEqualsClicked) { // check if equals button was previously clicked
-    clear(); // if so, clear the calculator state
+  if (lastResult !== null) {
+    clear();
+    lastResult = null;
   }
   if (operator === null) {
     // If no operator has been selected yet, add the number to the first operand
@@ -30,16 +30,22 @@ function handleNumberClick(number) {
     secondOperand = (secondOperand === null) ? number.toString() : secondOperand + number.toString();
     display.value = secondOperand;
   }
-  previousEqualsClicked = false; // reset variable
 }
 
 // Function to handle operator button clicks
 function handleOperatorClick(selectedOperator) {
-  if (firstOperand !== null && secondOperand !== null) {
+  if (lastResult !== null) {
+    operator = selectedOperator;
+    firstOperand = lastResult.toString();
+    secondOperand = null;
+    lastResult = null;
+  } else if (firstOperand !== null && secondOperand !== null) {
     // If both operands are set, perform the previous operation before setting the new operator
     performOperation();
+    operator = selectedOperator;
+  } else {
+    operator = selectedOperator;
   }
-  operator = selectedOperator;
 }
 
 // Function to perform the selected operation on the two operands
@@ -69,11 +75,10 @@ function performOperation() {
   } else {
     display.value = result.toString();
   }
-  // Reset the calculator state
+  // Update the calculator state
   firstOperand = result.toString();
-  operator = null;
   secondOperand = null;
-  previousEqualsClicked = true; // set variable
+  lastResult = result;
 }
 
 // Add click event listeners to number buttons
@@ -102,14 +107,17 @@ document.getElementById("divideButton").addEventListener("click", () => {
 document.getElementById("equalsButton").addEventListener("click", () => {
   if (firstOperand !== null && secondOperand !== null) {
     performOperation();
-  }
-
-  if (previousEqualsClicked = true) {
+  } 
+  if (lastResult !== null && secondOperand !== null) {
     firstOperand = lastResult.toString();
+    performOperation();
   }
 });
 
 // Add click event listener to clear button
 document.getElementById("clearButton").addEventListener("click", () => {
-  clear();
-});
+    clear();
+    firstOperand = null;
+    secondOperand = null;
+    lastResult = null;
+  });
