@@ -23,15 +23,24 @@ let weather = {
       const { name } = data;
       const { country } = data.sys;
       const { icon, description } = data.weather[0];
+      const { dt } = data;
       const { temp, humidity } = data.main;
+      if (data.rain) {
+        let rainfall = data.rain["1h"];
+        document.querySelector(".rainfall").innerHTML = "🌧️ Rainfall: " + rainfall.toFixed(2) + " mm";
+      }
+      else {
+        document.querySelector(".rainfall").innerHTML = "⛅ Rainfall: 0 mm";
+      }
       const { speed } = data.wind;
       // Select the elements to display the weather information and set their inner text or src to the corresponding values
       document.querySelector(".city").innerText = name + ", " + country;
       document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
       document.querySelector(".description").innerText = description;
       document.querySelector(".temp").innerText = temp + "°C";
-      document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-      document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
+      document.querySelector(".date").innerText = Date(dt);
+      document.querySelector(".humidity").innerText = "💧 Humidity: " + humidity + "%";
+      document.querySelector(".wind").innerText = "💨 Wind speed: " + speed + " km/h";
     },
 
     // Add a search method to the object that fetches the weather data for the input value

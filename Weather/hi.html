@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather App</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>Weather App</h1>
+	<p>Enter a city name:</p>
+	<input type="text" id="city">
+	<button onclick="getWeather()">Get Weather</button>
+	<div id="weather"></div>
+
+	<script>
+		function getWeather() {
+			var city = document.getElementById("city").value;
+			var apiKey = "c9e2aa18663c865d1aaea024b6e1b1a2"; // Replace with your own OpenWeatherMap API key
+			var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+			$.getJSON(url, function(data) {
+				var cityName = data.name;
+                var countryName = data.sys.country;
+				var date = new Date(data.dt * 1000);
+                var time = date.toLocaleTimeString();
+				var weatherCondition = data.weather[0].description;
+				var iconUrl = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+				var temperature = data.main.temp;
+				var rainfall = data.rain ? data.rain["1h"] : 0;
+				var windSpeed = data.wind.speed;
+				var humidity = data.main.humidity;
+                var pressure = data.main.pressure;
+
+				var weatherHtml = `
+                    <p>City: ${cityName}, ${countryName}</p>
+					<p>Day and Date: ${date.toDateString()}</p>
+                    <p>Time: ${time}</p>
+					<p>Weather: ${weatherCondition}</p>
+					<img src="${iconUrl}" alt="${weatherCondition}">
+					<p>Temperature: ${temperature} &deg;C</p>
+					<p>Rainfall: ${rainfall} mm</p>
+					<p>Wind Speed: ${windSpeed} m/s</p>
+					<p>Humidity: ${humidity}%</p>
+                    <p>Pressure: ${pressure} hPa</p>
+				`;
+
+				$("#weather").html(weatherHtml);
+			}).fail(function() {
+				$("#weather").html("<p>Sorry, an error occurred.</p>");
+			});
+		}
+	</script>
+</body>
+</html>
+
+
+fetch(`https://jsonplaceholder.typicode.com/users`)
+.then(response => response.json())
+.then(json => console.log(json))
